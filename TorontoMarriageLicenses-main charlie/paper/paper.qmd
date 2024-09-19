@@ -1,0 +1,58 @@
+---
+title: "Marriage Licenses"
+subtitle: "Empicical Analysis of Marriage Licenses in Toronto"
+author: 
+  - Charlie Zhang
+thanks: "Code and data are available at: https://github.com/zqyyk11/MarriageLicenses"
+date: today
+date-format: long
+abstract: "In this report we review the marriage licenses submitted in the year 2023 in Toronto civic regions. "
+format: pdf
+number-sections: true
+bibliography: references.bib
+---
+
+```{r}
+#| include: false
+#| warning: false
+#| message: false
+
+library(tidyverse)
+data <- read_csv(here::here("data/analysis_data/analysis_data.csv"))
+
+data |>
+  ggplot(aes(x = date, y = marriage_licenses)) + 
+  geom_point()
+```
+
+
+# Introduction
+
+We use @talia, @OpenDataToronto and @rohan.
+
+The remainder of this paper is structured under @sec-mydata.
+
+
+
+# Data {#sec-mydata}
+
+
+```{r}
+#| label: fig-marriage-licenses
+#| fig-cap: Marriage Licenses in Toronto
+#| echo: false
+data |>
+  ggplot(aes(x = date, y = marriage_licenses)) + 
+  geom_point()
+
+```
+
+As you can see there has been a spike in marriage licenses submitted after covid as compared to during the pandemic in 2020. As well before the pandemic there was a consistent trend in marriage licenses. 
+
+
+\newpage
+
+
+# References
+
+
